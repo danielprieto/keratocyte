@@ -1,0 +1,115 @@
+---
+title: "Migration front analysis using ImageJ"
+author: "Daniel Prieto & Gonzalo Aparicio"
+date: "December, 2016"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    toc: no
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{}
+- \fancyfoot[LE,RO]{\thepage}
+---
+
+This handout is intended to guide you through the process of manually tracking cellular pathways from a set of pictures, and to calibrate the dataset for further parameter extraction and analysis.
+
+# Manual tracking of a cellular migration pathway
+
+* Create a stack with the time sequence of the events to analyze. This step combines open images into a stack of images in a single file. It is with *this* file you will be working with from now on.
+
+### Open all images from your sequence of interest.  
+
+>File>Open  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/images.png")
+```
+
+### Create a stack with these images.  
+
+>Image > Stacks > Images to stack  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/stack.png")
+```
+
+* Note that the time sequence might not be correct in this stack; remember to verify the order of the images within the stack. In case some corrections were needed, use the *stack sorter* tool.  
+
+Image > Stacks > Tools > Stack Sorter  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/stack_sort.png")
+```
+
+* At this point the image stack should be calibrated in order to self-contain real size/time data.
+
+### Calibrate the dataset
+* Calibrate using a scale bar.   
+
+Analyze > Set scale   
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/scale.png")
+```
+  
+Once calibrated, we will need to know the xy resolution of our stack.   
+  
+Image > Properties   
+  
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/properties.png")
+```  
+  
+### Track paths  
+Open the *Manual Tracking* plugin window.  
+
+Plugins > Manual Tracking  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/tracking_params.png")
+```  
+
+* Fill in the *xy calibration* field with the data obtained beforehand, as explained above.  
+Define a point of reference with the button *Add reference*, then click with the mouse pointer on the image where you want the point of reference to be.   
+
+
+* Establish the first track *Add track*, click on a determined part of the particle we want to track (in our example, the center of the dark region of the cell). A results window will open showing the position and displacement in the previously defined units of measurement.  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/track_over.png")
+```   
+
+* Simultaneously, the window with the image stack will have moved one step forward into the stack. Repeat the procedure until finishing the track. At this point we should click on *End Track*.  
+
+* This step will be repeated for each of the particles (cells), whose paths we want to track.  
+
+To check your tracks have been correctly established and measured, we will ask ImageJ to show the tracks (e.g.,*Overlay Dots & Lines*).  
+
+```{r, out.width = "50%", echo=F}
+knitr::include_graphics("~/Descargas/kct/Bambed Keratocytes/practico/tracks.png")
+```  
+
+* Finally, save your data as a table for further analysis.  
+
+File > Save as (in the results window)
+
+What you will have saved will actually be a text file, with its *fields* being delimited by tabs. This is something important to be aware of, as it will be defined in the analysis script.}
+
+## Plugins you will require
+
+* Manual Tracking (http://rsbweb.nih.gov/ij/plugins/track/track.html)
+* WCIF plugins bundle (http://www.uhnresearch.ca/facilities/wcif/WrightCellImagingFacility%203/software/ImageJ_WCIF_plugins_only.zip)
+* Chemotaxis and Migration tool (http://ibidi.com/xtproducts/en/Software-and-Image-Analysis/Manual-Image-Analysis/Chemotaxis-and-Migration-Tool)
+
+### To get them installed, copy them to ImageJ plugins folder:
+
+* Under GNU/Linux (the .imagej folder, whithin which is the *plugins* folder) is in `/home/username` and it is usually hidden (ctrl+h to show hidden folders). 
+* Under MS Windows (ImageJ folder) is ussually found in `C:\Program Files\`, whithin which is the *plugins* folder.
+
+***
+This file has been generated using R, RStudio, ImageJ and GIMP. Please support free/open software.  
+*Keep your results reproducible. Open your code.*  
+Feel free to contact the authors at: dprieto@fcien.edu.uy and gaparicio@fcien.edu.uy

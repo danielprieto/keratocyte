@@ -1,0 +1,8 @@
+    glass    collagen     polyl
+ Min.   :0.03000   Min.   :0.1000   Min.   :0.0300  
+ 1st Qu.:0.04500   1st Qu.:0.1100   1st Qu.:0.1025  
+ Median :0.07500   Median :0.1500   Median :0.1250  
+ Mean   :0.07833   Mean   :0.1443   Mean   :0.1317  
+ 3rd Qu.:0.10500   3rd Qu.:0.1700   3rd Qu.:0.1850  
+ Max.   :0.14000   Max.   :0.2000   Max.   :0.2100  
+ NA's   :1   NA NA's   :1  

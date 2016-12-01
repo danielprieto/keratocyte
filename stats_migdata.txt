@@ -1,0 +1,8 @@
+    glass    collagen     polyl
+ Min.   : 6.61   Min.   :24.82   Min.   : 8.14  
+ 1st Qu.:10.54   1st Qu.:30.62   1st Qu.:21.87  
+ Median :20.70   Median :33.15   Median :28.79  
+ Mean   :20.24   Mean   :33.47   Mean   :30.50  
+ 3rd Qu.:29.72   3rd Qu.:36.91   3rd Qu.:42.79  
+ Max.   :33.56   Max.   :41.28   Max.   :50.29  
+ NA's   :1   NA NA's   :1  
